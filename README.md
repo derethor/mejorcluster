@@ -18,6 +18,15 @@ This pluging will let you insert a cluster of related post in your pages
 
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" round="yes" shadow="yes" skip_title="no"]
 
+### Skip Links
+
+    [mejorcluster posts="20,2,9,51,55,59,63,67,71" skip_title_link="yes"]
+    [mejorcluster posts="20,2,9,51,55,59,63,67,71" skip_image_link="yes"]
+
+### Title Tag
+
+    [mejorcluster posts="20,2,9,51,55,59,63,67,71" title_tag="h3"]
+
 ### Grid
 
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" grid="3" maxitems="9"]

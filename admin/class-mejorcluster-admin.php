@@ -288,6 +288,14 @@ class Mejorcluster_Admin {
 			'mejorcluster_pluginPage_section'
 		);
 
+		add_settings_field(
+			'mejorcluster_orderby',
+			__( 'Title Tag', 'mejorcluster' ),
+			array($this,'settings_text_title_tag_render'),
+			'pluginPage',
+			'mejorcluster_pluginPage_section'
+		);
+
 	}
 
 	private function settings_text_render( $name , $default_value ) {
@@ -322,6 +330,7 @@ class Mejorcluster_Admin {
 	public function settings_text_grid_render( ) { $this->settings_text_render ('grid', '3' ); }
 	public function settings_text_maxitems_render( ) { $this->settings_text_render ('maxitems', '9' ); }
 	public function settings_text_orderby_render( ) { $this->settings_text_render ('orderby', 'title' ); }
+	public function settings_text_title_tag_render( ) { $this->settings_text_render ('title_tag', 'h5' ); }
 
 	public function settings_section_callback(  ) {
 		// this is called when the page is displayed

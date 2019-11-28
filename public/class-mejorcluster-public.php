@@ -109,6 +109,7 @@ class Mejorcluster_Public {
     extract(shortcode_atts(array(
       'round' => gb ($options,'round','yes'),
       'shadow' => gb ($options,'shadow','yes'),
+      'title_tag' => gs ($options,'title_tag','h5'),
       'skip_title' => gb ($options,'skip_title','no'),
       'skip_title_link' => gb ($options,'skip_title_link','no'),
       'skip_desc' => gb ($options,'skip_desc','no'),
@@ -263,11 +264,11 @@ class Mejorcluster_Public {
 
         if(!$skip_title)
         {
-          $output .= "<h5 class='mejorcluster-title'>";
+          $output .= "<$title_tag class='mejorcluster-title'>";
           if (!$skip_title_link) $output .= "<a href='$the_link' rel='bookmark' class='mejorcluster-title-link'>";
           $output .= $the_title;
           if (!$skip_title_link) $output .= "</a>";
-          $output .= "</h5>";
+          $output .= "</$title_tag>";
         }
 
         if(!$skip_desc)
@@ -295,7 +296,7 @@ function gs ( $options , $name , $default_value )
   $kname = 'mejorcluster_' . $name;
   if ( isset ($options) )
   {
-    if ( isset ($options[$kname]) ) { return $options[$kname]; } else { return $default_value; }
+    if ( array_key_exists ($kname,$options) ) { return $options[$kname]; } else { return $default_value; }
   } else {
     return $default_value;
   }
@@ -306,7 +307,7 @@ function gb ( $options , $name , $default_value )
   $kname = 'mejorcluster_' . $name;
   if ( isset ($options) )
   {
-    if ( isset ($options[$kname]) ) { return 'yes'; } else { return 'no'; }
+    if ( array_key_exists ($kname,$options) ) { return 'yes'; } else { return 'no'; }
   } else {
     return $default_value;
   }
