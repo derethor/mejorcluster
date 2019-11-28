@@ -1,0 +1,66 @@
+/*PARA LOS CLUSTER*/
+.clusters {
+  width: 100%;
+  margin-bottom: 10px;
+  clear: both;
+}
+.cluster-texto article.entrada-cluster {
+  border-radius: 10px;
+  box-shadow: 0 0 12px 0 #e6e6e6;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow .3s ease;
+  transition: box-shadow .3s ease;
+}
+.cluster-texto article.entrada-cluster:hover {
+  box-shadow: 0 0 18px 0 #c7c7c7;
+}
+.cluster-grid-33 article.entrada-cluster {
+  max-width: 31%;
+  display: inline-table;
+  height: auto;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+.cluster-grid-50 article.entrada-cluster {
+  max-width: 48%;
+  display: inline-table;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+.clusters article.entrada-cluster a img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.titulo_cluster {
+  text-align: center;
+  font-weight: bold;
+}
+div.cluster-texto > article > a > p {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 1.07em;
+	font-weight: bold;
+	line-height: 25px;
+}
+div.cluster-texto article.entrada-cluster a img {
+  border-radius: 10px 10px 0 0;
+}
+div.cluster-texto > article.entrada-cluster > p {
+	padding: 0 10px 0 10px;
+	font-size: 12px;
+	color: #333333;
+}
+@media screen and (max-width: 1000px) {
+  .clusters article.entrada-cluster {
+    max-width: 45%;
+	}
+ }
+@media screen and (max-width: 680px) {
+  .clusters article.entrada-cluster {
+    max-width: 100%;
+	margin-right: 0;
+	}
+ }
