@@ -257,6 +257,14 @@ class Mejorcluster_Admin {
 		);
 
 		add_settings_field(
+			'mejorcluster_skip_image_link',
+			__( 'Skip Image Link', 'mejorcluster' ),
+			array($this,'settings_checkbox_skip_image_link_render'),
+			'pluginPage',
+			'mejorcluster_pluginPage_section'
+		);
+
+		add_settings_field(
 			'mejorcluster_grid',
 			__( 'Grid Columns', 'mejorcluster' ),
 			array($this,'settings_text_grid_render'),
@@ -309,6 +317,7 @@ class Mejorcluster_Admin {
 	public function settings_checkbox_skip_title_render(  ) { $this->settings_checkbox_render ('skip_title',0); }
 	public function settings_checkbox_skip_title_link_render(  ) { $this->settings_checkbox_render ('skip_title_link',1); }
 	public function settings_checkbox_skip_image_render(  ) { $this->settings_checkbox_render ('skip_image',0); }
+	public function settings_checkbox_skip_image_link_render(  ) { $this->settings_checkbox_render ('skip_image_link',0); }
 	public function settings_checkbox_skip_desc_render(  ) { $this->settings_checkbox_render ('skip_desc',0); }
 	public function settings_text_grid_render( ) { $this->settings_text_render ('grid', '3' ); }
 	public function settings_text_maxitems_render( ) { $this->settings_text_render ('maxitems', '9' ); }

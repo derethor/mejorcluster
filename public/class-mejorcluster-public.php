@@ -113,6 +113,7 @@ class Mejorcluster_Public {
       'skip_title_link' => gb ($options,'skip_title_link','no'),
       'skip_desc' => gb ($options,'skip_desc','no'),
       'skip_image' => gb ($options,'skip_image','no'),
+      'skip_image_link' => gb ($options,'skip_image_link','no'),
       'grid' => gs($options,'grid','3'),
       'maxitems' => gs($options,'maxitems','9'),
       'orderby' => gs($options,'orderby','title'),
@@ -130,6 +131,7 @@ class Mejorcluster_Public {
     $skip_title = $skip_title == 'yes';
     $skip_title_link = $skip_title_link == 'yes';
     $skip_image = $skip_image == 'yes';
+    $skip_image_link = $skip_image_link == 'yes';
     $skip_desc = $skip_desc == 'yes';
 
     $postsarray = array_map('intval', explode(',', $posts));
@@ -251,9 +253,9 @@ class Mejorcluster_Public {
       if (!$skip_image)
       {
         $output .= "<header class='mejorcluster-item-header'>";
-        $output .=   "<a href='$the_link' rel='bookmark class='mejorcluster-image-link'>";
+        if (!$skip_image_link) $output .=   "<a href='$the_link' rel='bookmark class='mejorcluster-image-link'>";
         $output .=     "<img src='$the_thumb' class='mejorcluster-image' alt='$the_title' />";
-        $output .=   "</a>";
+        if (!$skip_image_link) $output .=   "</a>";
         $output .= "</header>";
       }
 
