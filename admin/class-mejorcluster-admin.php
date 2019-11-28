@@ -144,7 +144,7 @@ class Mejorcluster_Admin {
 <?php
   }
 
-  public function save_page_meta_box( $post_id )
+  public function save_meta_box( $post_id )
   {
     $is_autosave = wp_is_post_autosave( $post_id );
     $is_revision = wp_is_post_revision( $post_id );
@@ -179,7 +179,7 @@ class Mejorcluster_Admin {
         'mejorcluster_box_id',                // Unique ID
         'Mejor Cluster',                      // Box title
         array($this,'add_custom_box_html'),   // Content callback, must be of type callable
-        'page',                                // Post type
+        '',                                   // Post type
         'normal',
         'default'
       );
