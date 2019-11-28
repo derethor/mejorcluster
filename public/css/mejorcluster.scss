@@ -1,7 +1,7 @@
 .mejorcluster {
 
   width: 95%;
-  margin-bottom: 10px;
+  margin: 10px auto;
   clear: both;
 
   .mejorcluster-item {
@@ -68,19 +68,30 @@
   margin-right: auto;
 }
 
-.mejorcluster-grid-2 .mejorcluster-item {
-  width: 48%;
-  margin-right: 10px;
+@media screen and (min-width: 1024px) {
+  .mejorcluster-grid-2 .mejorcluster-item {
+    width: 48%;
+    margin-right: 1%;
+  }
+
+  .mejorcluster-grid-3 .mejorcluster-item {
+    width: 31%;
+    margin-right: 2%;
+  }
 }
 
-.mejorcluster-grid-3 .mejorcluster-item {
-  width: 31%;
-  margin-right: 15px;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .mejorcluster-grid-3 .mejorcluster-item , .mejorcluster-grid-2 .mejorcluster-item {
+    width: 48%;
+    margin-right: 1%;
+  }
 }
 
-@media screen and (max-width: 1024px) {
-  .mejorcluster .mejorcluster-item { max-width: 45%; }
-}
 @media screen and (max-width: 768px) {
-  .mejorcluster .mejorcluster-item { max-width: 100%; margin-right: 0; }
+
+  .mejorcluster-grid-3 .mejorcluster-item , .mejorcluster-grid-2 .mejorcluster-item {
+    width: 98%;
+    margin: 2rem auto;
+  }
+
 }
