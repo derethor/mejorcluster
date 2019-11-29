@@ -257,7 +257,7 @@ class Mejorcluster_Public {
       {
         $output .= "<header class='mejorcluster-item-header'>";
         if (!$skip_image_link) $output .=   "<a href='$the_link' rel='bookmark class='mejorcluster-image-link'>";
-        $output .=     "<img src='$the_thumb' class='mejorcluster-image' alt='$the_title' />";
+        $output .=     "<figure class='mejorcluster-figure'><img src='$the_thumb' class='mejorcluster-image' alt='$the_title' /></figure>";
         if (!$skip_image_link) $output .=   "</a>";
         $output .= "</header>";
       }
