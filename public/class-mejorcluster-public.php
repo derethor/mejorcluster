@@ -138,39 +138,40 @@ class Mejorcluster_Public {
     $postsarray = array_map('intval', explode(',', $posts));
     $excldarray = array_map('intval', explode(',', $exclude));
 
+    $pararray = array_map('intval', explode(',', $parent));
     $catarray = array_map('intval', explode(',', $categories));
     $tagarray = array_map('intval', explode(',', $tags));
 
     // get page list
     if($posts!= '') { // by post list
       $the_query = array(
-        'post_type' => 'any',
         'post__in' => $postsarray,
+        'post_type' => 'any',
         'post__not_in' => $excldarray,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
     } elseif( $parent!= '') { // by parent
       $the_query = array(
+        'post_parent__in' => $pararray,
         'post_type' => 'any',
         'post__not_in' => $excldarray,
-        'post_parent' => $parent,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
     } elseif( $categories!= '') { // by category
       $the_query = array(
+        'category__in' => $catarray,
         'post_type' => 'any',
         'post__not_in' => $excldarray,
-        'category__in' => $catarray,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
     } elseif( $tags!= '') { // by tag
       $the_query = array(
+        'tag__in' => $tagarray,
         'post_type' => 'any',
         'post__not_in' => $excldarray,
-        'tag__in' => $tagarray,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
@@ -178,9 +179,9 @@ class Mejorcluster_Public {
       $categories = get_the_category($post->ID);
       $category_id = $categories[0]->cat_ID;
       $the_query = array(
+        'cat' => $category_id,
         'post_type' => 'any',
         'post__not_in' => $excldarray,
-        'cat' => $category_id,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );

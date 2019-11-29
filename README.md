@@ -9,7 +9,7 @@ This pluging will let you insert a cluster of related post in your pages
 
     [mejorcluster]
     [mejorcluster posts="20,2,9,51,55,59,63,67,71"]
-    [mejorcluster parent="2"]
+    [mejorcluster parent="2,3,4"]
     [mejorcluster categories="3,4"]
     [mejorcluster categories="3" exclude="101"]
     [mejorcluster tags="4,5"]
