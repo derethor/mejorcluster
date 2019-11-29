@@ -191,109 +191,109 @@ class Mejorcluster_Admin {
 
 	public function settings_init() {
 
-		register_setting( 'pluginPage', 'mejorcluster_settings' );
+		register_setting( 'mejorcluster_options', 'mejorcluster_settings' );
 
 		add_settings_section(
-			'mejorcluster_pluginPage_section',
+			'mejorcluster_options_section',
 			__( 'Opciones del mejor cluster', 'mejorcluster' ),
 			array( $this,'settings_section_callback'),
-			'pluginPage'
+			'mejorcluster_options'
 		);
 
 		add_settings_field(
 			'mejorcluster_enabled',
 			__( 'Enabled', 'mejorcluster' ),
 			array($this,'settings_checkbox_enabled_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_round',
 			__( 'Round Border', 'mejorcluster' ),
 			array($this,'settings_checkbox_round_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_shadow',
 			__( 'Shadow Border', 'mejorcluster' ),
 			array($this,'settings_checkbox_shadow_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_skip_title',
 			__( 'Skip Title', 'mejorcluster' ),
 			array($this,'settings_checkbox_skip_title_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_skip_title_link',
 			__( 'Skip Title Link', 'mejorcluster' ),
 			array($this,'settings_checkbox_skip_title_link_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_skip_desc',
 			__( 'Skip Description', 'mejorcluster' ),
 			array($this,'settings_checkbox_skip_desc_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_skip_image',
 			__( 'Skip Image', 'mejorcluster' ),
 			array($this,'settings_checkbox_skip_image_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_skip_image_link',
 			__( 'Skip Image Link', 'mejorcluster' ),
 			array($this,'settings_checkbox_skip_image_link_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_grid',
 			__( 'Grid Columns', 'mejorcluster' ),
 			array($this,'settings_text_grid_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_maxitems',
 			__( 'Max Items', 'mejorcluster' ),
 			array($this,'settings_text_maxitems_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_orderby',
 			__( 'Order By', 'mejorcluster' ),
 			array($this,'settings_text_orderby_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 		add_settings_field(
 			'mejorcluster_orderby',
 			__( 'Title Tag', 'mejorcluster' ),
 			array($this,'settings_text_title_tag_render'),
-			'pluginPage',
-			'mejorcluster_pluginPage_section'
+			'mejorcluster_options',
+			'mejorcluster_options_section'
 		);
 
 	}
@@ -341,8 +341,8 @@ class Mejorcluster_Admin {
 			<form action='options.php' method='post'>
 
 				<?php
-				settings_fields( 'pluginPage' );
-				do_settings_sections( 'pluginPage' );
+				settings_fields( 'mejorcluster_options' );
+				do_settings_sections( 'mejorcluster_options' );
 				submit_button();
 				?>
 
