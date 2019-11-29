@@ -289,9 +289,17 @@ class Mejorcluster_Admin {
 		);
 
 		add_settings_field(
-			'mejorcluster_orderby',
+			'mejorcluster_title_tag',
 			__( 'Title Tag', 'mejorcluster' ),
 			array($this,'settings_text_title_tag_render'),
+			'mejorcluster_options',
+			'mejorcluster_options_section'
+		);
+
+		add_settings_field(
+			'mejorcluster_desc_tag',
+			__( 'Desc Tag', 'mejorcluster' ),
+			array($this,'settings_text_desc_tag_render'),
 			'mejorcluster_options',
 			'mejorcluster_options_section'
 		);
@@ -331,6 +339,7 @@ class Mejorcluster_Admin {
 	public function settings_text_maxitems_render( ) { $this->settings_text_render ('maxitems', '9' ); }
 	public function settings_text_orderby_render( ) { $this->settings_text_render ('orderby', 'title' ); }
 	public function settings_text_title_tag_render( ) { $this->settings_text_render ('title_tag', 'h5' ); }
+	public function settings_text_desc_tag_render( ) { $this->settings_text_render ('desc_tag', 'p' ); }
 
 	public function settings_section_callback(  ) {
 		// this is called when the page is displayed

@@ -110,6 +110,7 @@ class Mejorcluster_Public {
       'round' => gb ($options,'round','yes'),
       'shadow' => gb ($options,'shadow','yes'),
       'title_tag' => gs ($options,'title_tag','h5'),
+      'desc_tag' => gs ($options,'desc_tag','p'),
       'skip_title' => gb ($options,'skip_title','no'),
       'skip_title_link' => gb ($options,'skip_title_link','no'),
       'skip_desc' => gb ($options,'skip_desc','no'),
@@ -274,7 +275,7 @@ class Mejorcluster_Public {
 
         if(!$skip_desc)
         {
-          $output .= "<p class='mejorcluster-desc'>$the_content</p>";
+          $output .= "<$desc_tag class='mejorcluster-desc'>$the_content</$desc_tag>";
         }
 
       if (! ($skip_title && $skip_desc) ) $output .= '</div>';
