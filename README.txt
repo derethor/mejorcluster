@@ -1,9 +1,19 @@
+=== El mejor Cluster ===
+Contributors: derethor
+Tags: cluster,seo,related posts
+Tested up to: 5.3
+License: GPL-2.0+
+License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
-## Mejor Cluster
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Create easy related posts blocks with a simple shortcode.
+This plugin is light, very easy to use and designed for SEO.
 
-This pluging will let you insert a cluster of related post in your pages
+== Description ==
+This plugin with create a related post block with a simple shortcode.
+
+You can configure the title, description and image of each post (by default will use the title, first  content words and featued image of the post)
+
+You can setup few global options to change the visual aspect of the block.
 
 ### Default usage
 
