@@ -209,6 +209,14 @@ class Mejorcluster_Admin {
 		);
 
 		add_settings_field(
+			'mejorcluster_includecss',
+			__( 'Dont Include CSS stylesheet', 'mejorcluster' ),
+			array($this,'settings_checkbox_skipcss_render'),
+			'mejorcluster_options',
+			'mejorcluster_options_section'
+		);
+
+		add_settings_field(
 			'mejorcluster_round',
 			__( 'Round Border', 'mejorcluster' ),
 			array($this,'settings_checkbox_round_render'),
@@ -328,6 +336,7 @@ class Mejorcluster_Admin {
   }
 
 	public function settings_checkbox_enabled_render(  ) { $this->settings_checkbox_render ('enabled',1); }
+	public function settings_checkbox_skipcss_render(  ) { $this->settings_checkbox_render ('skipcss',0); }
 	public function settings_checkbox_round_render(  ) { $this->settings_checkbox_render ('round',1); }
 	public function settings_checkbox_shadow_render(  ) { $this->settings_checkbox_render ('shadow',1); }
 	public function settings_checkbox_skip_title_render(  ) { $this->settings_checkbox_render ('skip_title',0); }

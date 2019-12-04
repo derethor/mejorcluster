@@ -51,7 +51,7 @@ class Mejorcluster_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
+		$this->global_options = get_option( 'mejorcluster_settings' );
 	}
 
 	/**
@@ -73,8 +73,9 @@ class Mejorcluster_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/mejorcluster.css', array(), $this->version, 'all' );
+    $skipcss= gb ($this->global_options,'skipcss','no');
 
+    if ($skipcss != 'yes') wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/mejorcluster.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -104,7 +105,7 @@ class Mejorcluster_Public {
 
     global $post;
 
-		$options = get_option( 'mejorcluster_settings' );
+		$options = $this->global_options;
     $enabled = gb ($options,'enabled','yes');
     if ($enabled !='yes') return '';
 
