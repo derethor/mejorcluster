@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       El mejor Cluster
- * Plugin URI:        https://www.derethor.net
+ * Plugin URI:        https://github.com/derethor/mejorcluster
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.1.4
  * Author:            Javier Loureiro
@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Start at version 1.0.0
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'MEJORCLUSTER_VERSION', '1.1.4' );
