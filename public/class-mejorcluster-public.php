@@ -102,6 +102,8 @@ class Mejorcluster_Public {
 
   public function do_shortcode_cluster($atts) {
 
+    global $post;
+
 		$options = get_option( 'mejorcluster_settings' );
     $enabled = gb ($options,'enabled','yes');
     if ($enabled !='yes') return '';
@@ -176,16 +178,19 @@ class Mejorcluster_Public {
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
-    } else { // by own category
+    } else { // no params
+
       $categories = get_the_category($post->ID);
       $category_id = $categories[0]->cat_ID;
       $the_query = array(
         'cat' => $category_id,
-        'post_type' => 'any',
+        'post_parent' => $post->ID,
+        'post_type' => $post->post_type,
         'post__not_in' => $excldarray,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
+
     };
 
     $cssclass = 'mejorcluster';
@@ -217,9 +222,7 @@ class Mejorcluster_Public {
 
     $output = '';
     $output .= "<div class='$cssclass'>";
-
     query_posts($the_query);
-    global $post;
     if (have_posts()) : while (have_posts()) : the_post();
 
     $stored_meta = get_post_meta($post->ID);
@@ -252,7 +255,6 @@ class Mejorcluster_Public {
 
     // create the cluster item
     $output .= "<article class='mejorcluster-item'>";
-
       if (!$skip_image)
       {
         $output .= "<header class='mejorcluster-item-header'>";
