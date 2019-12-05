@@ -146,6 +146,8 @@ class Mejorcluster_Public {
     $catarray = array_map('intval', explode(',', $categories));
     $tagarray = array_map('intval', explode(',', $tags));
 
+    $classname = sanitize_html_class($classname);
+
     // get page list
     if($posts!= '') { // by post list
       $the_query = array(
@@ -218,6 +220,7 @@ class Mejorcluster_Public {
     } else {
       $cssclass.= ' mejorcluster-display-text';
     }
+    $cssclass = esc_attr($cssclass);
 
     // start output
 
@@ -234,7 +237,7 @@ class Mejorcluster_Public {
     } else {
       $title = get_the_title($post->ID);
     };
-    $the_title = wp_trim_words( $title, 6 );
+    $the_title = esc_html (wp_trim_words( $title, 6 ));
 
     // Description
     if ( isset ( $stored_meta['mejorcluster-desc'] ) && strlen($stored_meta['mejorcluster-desc'][0]) > 0 ) {
@@ -242,7 +245,7 @@ class Mejorcluster_Public {
     } else {
       $content = get_the_content($post->ID);
     };
-    $the_content = wp_trim_words( $content, 10 );
+    $the_content = esc_html ( wp_trim_words( $content, 10 ) );
 
     // Image
     if ( isset ( $stored_meta['mejorcluster-image'] ) && strlen($stored_meta['mejorcluster-image'][0]) > 0 ) {
@@ -250,9 +253,10 @@ class Mejorcluster_Public {
     } else {
       $the_thumb = get_the_post_thumbnail_url($post->ID);
     }
+    $the_thumb = esc_url ($the_thumb);
 
     // Permalink
-    $the_link = get_permalink($post->ID);
+    $the_link = esc_url ( get_permalink($post->ID) );
 
     // create the cluster item
     $output .= "<article class='mejorcluster-item'>";
@@ -299,12 +303,14 @@ class Mejorcluster_Public {
 function gs ( $options , $name , $default_value )
 {
   $kname = 'mejorcluster_' . $name;
+
+  $value = $default_value;
+
   if ( isset ($options) )
   {
-    if ( array_key_exists ($kname,$options) ) { return $options[$kname]; } else { return $default_value; }
-  } else {
-    return $default_value;
+    if ( array_key_exists ($kname,$options) ) { $value = $options[$kname]; } else { $value = $default_value; }
   }
+  return sanitize_text_field ($value);
 }
 
 function gb ( $options , $name , $default_value )
@@ -314,7 +320,7 @@ function gb ( $options , $name , $default_value )
   {
     if ( array_key_exists ($kname,$options) ) { return 'yes'; } else { return 'no'; }
   } else {
-    return $default_value;
+    return sanitize_text_field($default_value);
   }
 }
 

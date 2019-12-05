@@ -167,7 +167,7 @@ class Mejorcluster_Admin {
       update_post_meta( $post_id, 'mejorcluster-desc', sanitize_text_field($_POST[ 'mejorcluster-desc' ]) );
     }
     if( isset( $_POST[ 'mejorcluster-image' ] ) ) {
-      update_post_meta( $post_id, 'mejorcluster-image', $_POST[ 'mejorcluster-image' ] );
+      update_post_meta( $post_id, 'mejorcluster-image', sanitize_text_field($_POST[ 'mejorcluster-image' ]) );
     }
 
     return $post_id;
@@ -319,6 +319,7 @@ class Mejorcluster_Admin {
     $kname= 'mejorcluster_' . $name;
     $value = $default_value;
     if (isset ($options) && isset($options[$kname]) ) $value=$options[$kname];
+    $value = esc_html ($value);
 		echo "<input type='text' name='mejorcluster_settings[$kname]' value='$value' >";
 	}
 
