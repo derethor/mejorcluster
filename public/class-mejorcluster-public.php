@@ -306,7 +306,7 @@ function gs ( $options , $name , $default_value )
 
   $value = $default_value;
 
-  if ( isset ($options) )
+  if ( is_array ($options) )
   {
     if ( array_key_exists ($kname,$options) ) { $value = $options[$kname]; } else { $value = $default_value; }
   }
@@ -316,11 +316,12 @@ function gs ( $options , $name , $default_value )
 function gb ( $options , $name , $default_value )
 {
   $kname = 'mejorcluster_' . $name;
-  if ( isset ($options) )
+  if ( is_array ($options) )
   {
     if ( array_key_exists ($kname,$options) ) { return 'yes'; } else { return 'no'; }
   } else {
     return sanitize_text_field($default_value);
   }
+
 }
 
