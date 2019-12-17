@@ -255,7 +255,7 @@ class Mejorcluster_Public {
     if ( isset ( $stored_meta['mejorcluster-image'] ) && strlen($stored_meta['mejorcluster-image'][0]) > 0 ) {
       $the_thumb = $stored_meta['mejorcluster-image'][0];
     } else {
-      $the_thumb = get_the_post_thumbnail_url($post->ID);
+      $the_thumb = get_the_post_thumbnail_url($post->ID , 'medium' );
     }
     $the_thumb = esc_url ($the_thumb);
 
