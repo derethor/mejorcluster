@@ -275,7 +275,7 @@ class Mejorcluster_Admin {
 		add_settings_field(
 			'mejorcluster_imagesize',
 			__( 'Image Size', 'mejorcluster' ),
-			array($this,'settings_text_imagesize_render'),
+			array($this,'settings_list_imagesize_render'),
 			'mejorcluster_options',
 			'mejorcluster_options_section'
 		);
@@ -326,7 +326,7 @@ class Mejorcluster_Admin {
 		$options = get_option( 'mejorcluster_settings' );
     $kname= 'mejorcluster_' . $name;
     $value = $default_value;
-    if (isset ($options) && isset($options[$kname]) ) $value=$options[$kname];
+    if (is_array ($options) && isset($options[$kname]) ) $value=$options[$kname];
     $value = esc_html ($value);
 		echo "<input type='text' name='mejorcluster_settings[$kname]' value='$value' >";
 	}
@@ -335,13 +335,34 @@ class Mejorcluster_Admin {
 		$options = get_option( 'mejorcluster_settings' );
     $kname = 'mejorcluster_' . $name;
 
-    if (isset ($options)) {
+    if (is_array ($options)) {
       if ( isset($options[$kname]) ) { $value=1; } else { $value=0; }
     } else {
       $value = $default_value;
     }
 
-		echo "<input type='checkbox' name='mejorcluster_settings[$kname]' "; checked($value,1); echo " value='1'>";
+		echo "<input type='checkbox' name='mejorcluster_settings[".esc_attr($kname)."]' "; checked($value,1); echo " value='1'>";
+  }
+
+  private function settings_list_render ( $name ,  $values , $default_value ) {
+
+    if (!is_array($values)) return;
+
+		$options = get_option( 'mejorcluster_settings' );
+    $kname = 'mejorcluster_' . $name;
+
+    $selected = $default_value;
+    if (is_array ($options) && isset($options[$kname]) ) $selected=$options[$kname];
+
+    echo "<select name='mejorcluster_settings[" . esc_attr($kname) . "]'>";
+    foreach ($values as $value)
+    {
+      echo "<option value=".esc_attr($value);
+      if ( $selected == $value ) echo " selected ";
+      echo ">".esc_html($value)."</option>";
+    }
+    echo "</select>";
+
   }
 
 	public function settings_checkbox_enabled_render(  ) { $this->settings_checkbox_render ('enabled',1); }
@@ -353,7 +374,7 @@ class Mejorcluster_Admin {
 	public function settings_checkbox_skip_image_render(  ) { $this->settings_checkbox_render ('skip_image',0); }
 	public function settings_checkbox_skip_image_link_render(  ) { $this->settings_checkbox_render ('skip_image_link',0); }
 	public function settings_checkbox_skip_desc_render(  ) { $this->settings_checkbox_render ('skip_desc',0); }
-	public function settings_text_imagesize_render( ) { $this->settings_text_render ('imagesize', 'medium' ); }
+	public function settings_list_imagesize_render( ) { $this->settings_list_render ('imagesize',get_intermediate_image_sizes(),'medium' ); }
 	public function settings_text_grid_render( ) { $this->settings_text_render ('grid', '3' ); }
 	public function settings_text_maxitems_render( ) { $this->settings_text_render ('maxitems', '9' ); }
 	public function settings_text_orderby_render( ) { $this->settings_text_render ('orderby', 'title' ); }
