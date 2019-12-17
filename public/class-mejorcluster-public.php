@@ -183,16 +183,20 @@ class Mejorcluster_Public {
       );
     } else { // no params
 
-      $categories = get_the_category($post->ID);
-      $category_id = $categories[0]->cat_ID;
       $the_query = array(
-        'cat' => $category_id,
         'post_parent' => $post->ID,
         'post_type' => $post->post_type,
         'post__not_in' => $excldarray,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
+
+      $categories = get_the_category($post->ID);
+      if ( is_array($categories) && count($categories) > 0 )
+      {
+        $category_id = $categories[0]->cat_ID;
+        $the_query['cat'] = $category_id;
+      }
 
     };
 
