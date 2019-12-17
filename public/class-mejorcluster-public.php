@@ -119,6 +119,7 @@ class Mejorcluster_Public {
       'skip_desc' => gb ($options,'skip_desc','no'),
       'skip_image' => gb ($options,'skip_image','no'),
       'skip_image_link' => gb ($options,'skip_image_link','no'),
+      'imagesize' => gs($options,'imagesize','medium'),
       'grid' => gs($options,'grid','3'),
       'maxitems' => gs($options,'maxitems','9'),
       'orderby' => gs($options,'orderby','title'),
@@ -255,7 +256,7 @@ class Mejorcluster_Public {
     if ( isset ( $stored_meta['mejorcluster-image'] ) && strlen($stored_meta['mejorcluster-image'][0]) > 0 ) {
       $the_thumb = $stored_meta['mejorcluster-image'][0];
     } else {
-      $the_thumb = get_the_post_thumbnail_url($post->ID , 'medium' );
+      $the_thumb = get_the_post_thumbnail_url($post->ID , $imagesize );
     }
     $the_thumb = esc_url ($the_thumb);
 

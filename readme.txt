@@ -41,6 +41,12 @@ You can setup few global options to change the visual aspect of the block.
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" title_tag="h3"]
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" desc_tag="h5"]
 
+### Image Size
+
+    Use the same name than the wordpress size name (i.e. medium, large, etc)
+
+    [mejorcluster imagesize="large"]
+
 ### Grid
 
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" grid="3" maxitems="9"]
