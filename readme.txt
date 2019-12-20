@@ -29,7 +29,8 @@ You can setup few global options to change the visual aspect of the block.
 
 ### Sister pages (with same parent)
 
-    [mejorcluster parent="self"]
+    [mejorcluster parent="post_parent"]
+    [mejorcluster parent="post_parent" exclude="self"]
 
 ### Rounded and shadows style
 

@@ -140,10 +140,9 @@ class Mejorcluster_Public {
     $skip_image_link = $skip_image_link == 'yes';
     $skip_desc = $skip_desc == 'yes';
 
-    $postsarray = array_map('intval', explode(',', $posts));
-    $excldarray = array_map('intval', explode(',', $exclude));
-
-    $pararray = array_map('parent_map' , explode(',', $parent) , [$post->post_parent] ) ;
+    $postsarray = array_map('shortcode_map', explode(',', $posts) , [$post] );
+    $excldarray = array_map('shortcode_map', explode(',', $exclude) , [$post] );
+    $pararray = array_map('shortcode_map' , explode(',', $parent) , [$post] ) ;
     $catarray = array_map('intval', explode(',', $categories));
     $tagarray = array_map('intval', explode(',', $tags));
 
@@ -326,9 +325,10 @@ function gb ( $options , $name , $default_value )
   }
 }
 
-function parent_map ($n,$params)
+function shortcode_map ($n,$post)
 {
-  if ( trim(strtolower($n)) == 'self') return $params;
+  if ( trim(strtolower($n)) == 'self') return $post->ID;
+  if ( trim(strtolower($n)) == 'post_parent') return $post->post_parent;
   return intval($n);
 }
 
