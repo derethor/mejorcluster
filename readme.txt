@@ -27,6 +27,10 @@ You can setup few global options to change the visual aspect of the block.
     [mejorcluster categories="3" exclude="101"]
     [mejorcluster tags="4,5"]
 
+### Sister pages (with same parent)
+
+    [mejorcluster parent="self"]
+
 ### Rounded and shadows style
 
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" round="yes" shadow="yes" skip_title="no"]

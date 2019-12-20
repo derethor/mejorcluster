@@ -143,7 +143,7 @@ class Mejorcluster_Public {
     $postsarray = array_map('intval', explode(',', $posts));
     $excldarray = array_map('intval', explode(',', $exclude));
 
-    $pararray = array_map('intval', explode(',', $parent));
+    $pararray = array_map('parent_map' , explode(',', $parent) , [$post->post_parent] ) ;
     $catarray = array_map('intval', explode(',', $categories));
     $tagarray = array_map('intval', explode(',', $tags));
 
@@ -166,7 +166,7 @@ class Mejorcluster_Public {
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
-    } elseif( $categories!= '') { // by category
+    } elseif( $categories!= '') {  // by category
       $the_query = array(
         'category__in' => $catarray,
         'post_type' => 'any',
@@ -174,7 +174,7 @@ class Mejorcluster_Public {
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
-    } elseif( $tags!= '') { // by tag
+    } elseif( $tags != '') {  // by tag
       $the_query = array(
         'tag__in' => $tagarray,
         'post_type' => 'any',
@@ -198,13 +198,10 @@ class Mejorcluster_Public {
         $category_id = $categories[0]->cat_ID;
         $the_query['cat'] = $category_id;
       }
-
     };
 
     $cssclass = 'mejorcluster';
-
     if ($classname != '') $cssclass .= " $classname";
-
     $cssclass.= sprintf ( ' mejorcluster-grid-%d' , $grid );
 
     if($shadow) {
@@ -327,6 +324,11 @@ function gb ( $options , $name , $default_value )
   } else {
     return sanitize_text_field($default_value);
   }
+}
 
+function parent_map ($n,$params)
+{
+  if ( trim(strtolower($n)) == 'self') return $params;
+  return intval($n);
 }
 
