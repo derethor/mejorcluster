@@ -8,6 +8,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 Create easy related posts blocks with a simple shortcode.
 This plugin is light, very easy to use and designed for SEO.
 
+Visit the official wordpress plugin page: https://wordpress.org/plugins/mejorcluster/
+
 == Description ==
 This plugin with create a related post block with a simple shortcode.
 
