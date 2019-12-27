@@ -320,6 +320,22 @@ class Mejorcluster_Admin {
 			'mejorcluster_options_section'
 		);
 
+		add_settings_field(
+			'mejorcluster_title_maxwords',
+			__( 'Title Max number of words', 'mejorcluster' ),
+			array($this,'settings_text_title_maxwords_render'),
+			'mejorcluster_options',
+			'mejorcluster_options_section'
+		);
+
+		add_settings_field(
+			'mejorcluster_desc_maxwords',
+			__( 'Description Max number of words', 'mejorcluster' ),
+			array($this,'settings_text_desc_maxwords_render'),
+			'mejorcluster_options',
+			'mejorcluster_options_section'
+		);
+
 	}
 
 	private function settings_text_render( $name , $default_value ) {
@@ -380,6 +396,8 @@ class Mejorcluster_Admin {
 	public function settings_text_orderby_render( ) { $this->settings_text_render ('orderby', 'title' ); }
 	public function settings_text_title_tag_render( ) { $this->settings_text_render ('title_tag', 'h5' ); }
 	public function settings_text_desc_tag_render( ) { $this->settings_text_render ('desc_tag', 'p' ); }
+	public function settings_text_title_maxwords_render( ) { $this->settings_text_render ('title_maxwords', '6' ); }
+	public function settings_text_desc_maxwords_render( ) { $this->settings_text_render ('desc_maxwords', '10' ); }
 
 	public function settings_section_callback(  ) {
 		// this is called when the page is displayed

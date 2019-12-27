@@ -114,6 +114,8 @@ class Mejorcluster_Public {
       'shadow' => gb ($options,'shadow','yes'),
       'title_tag' => gs ($options,'title_tag','h5'),
       'desc_tag' => gs ($options,'desc_tag','p'),
+      'title_maxwords' => gs ($options,'title_maxwords','6'),
+      'desc_maxwords' => gs ($options,'desc_maxwords','10'),
       'skip_title' => gb ($options,'skip_title','no'),
       'skip_title_link' => gb ($options,'skip_title_link','no'),
       'skip_desc' => gb ($options,'skip_desc','no'),
@@ -139,6 +141,9 @@ class Mejorcluster_Public {
     $skip_image = $skip_image == 'yes';
     $skip_image_link = $skip_image_link == 'yes';
     $skip_desc = $skip_desc == 'yes';
+
+    $title_maxwords = intval($title_maxwords);
+    $desc_maxwords = intval($desc_maxwords);
 
     $postsarray = array_map('shortcode_map', explode(',', $posts) , [$post] );
     $excldarray = array_map('shortcode_map', explode(',', $exclude) , [$post] );
@@ -238,7 +243,7 @@ class Mejorcluster_Public {
     } else {
       $title = get_the_title($post->ID);
     };
-    $the_title = esc_html (wp_trim_words( $title, 6 ));
+    $the_title = esc_html (wp_trim_words( $title, $title_maxwords ));
 
     // Description
     if ( isset ( $stored_meta['mejorcluster-desc'] ) && strlen($stored_meta['mejorcluster-desc'][0]) > 0 ) {
@@ -246,7 +251,7 @@ class Mejorcluster_Public {
     } else {
       $content = get_the_content($post->ID);
     };
-    $the_content = esc_html ( wp_trim_words( $content, 10 ) );
+    $the_content = esc_html ( wp_trim_words( $content, $desc_maxwords ) );
 
     // Image
     if ( isset ( $stored_meta['mejorcluster-image'] ) && strlen($stored_meta['mejorcluster-image'][0]) > 0 ) {

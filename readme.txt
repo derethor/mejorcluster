@@ -17,6 +17,15 @@ You can configure the title, description and image of each post (by default will
 
 You can setup few global options to change the visual aspect of the block.
 
+
+== Change Log ==
+
+1.1.8: 
+
+- added the title_maxwords and desc_maxwords parameters (also global) to limit the number of words displayed
+
+== How to use ==
+
 ### Default usage
 
     [mejorcluster]
@@ -47,6 +56,11 @@ You can setup few global options to change the visual aspect of the block.
 
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" title_tag="h3"]
     [mejorcluster posts="20,2,9,51,55,59,63,67,71" desc_tag="h5"]
+
+### Title and Desc max len
+
+    [mejorcluster posts="20,2,9,51,55,59,63,67,71" title_maxwords="2"]
+    [mejorcluster posts="20,2,9,51,55,59,63,67,71" desc_maxwords="50"]
 
 ### Image Size
 
