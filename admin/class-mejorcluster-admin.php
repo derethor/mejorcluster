@@ -175,14 +175,18 @@ class Mejorcluster_Admin {
 
   public function add_custom_box()
   {
-      add_meta_box(
+    $options = get_option( 'mejorcluster_settings' );
+    $name = 'mejorcluster_hide_metaeditor';
+    if ( is_array ($options) and ( array_key_exists ( $name , $options) ) ) return;
+
+    add_meta_box(
         'mejorcluster_box_id',                // Unique ID
         'Mejor Cluster',                      // Box title
         array($this,'add_custom_box_html'),   // Content callback, must be of type callable
         '',                                   // Post type
         'normal',
         'default'
-      );
+        );
   }
 
 	public function add_admin_menu() {
@@ -195,7 +199,7 @@ class Mejorcluster_Admin {
 
 		add_settings_section(
 			'mejorcluster_options_section',
-			__( 'Opciones del mejor cluster', 'mejorcluster' ),
+			__( 'Mejor Cluster Settings', 'mejorcluster' ),
 			array( $this,'settings_section_callback'),
 			'mejorcluster_options'
 		);
@@ -204,6 +208,14 @@ class Mejorcluster_Admin {
 			'mejorcluster_enabled',
 			__( 'Enabled', 'mejorcluster' ),
 			array($this,'settings_checkbox_enabled_render'),
+			'mejorcluster_options',
+			'mejorcluster_options_section'
+		);
+
+		add_settings_field(
+			'mejorcluster_hide_metaeditor',
+			__( 'Hide Custom Box on Posts Editor', 'mejorcluster' ),
+			array($this,'settings_checkbox_hide_metaeditor_render'),
 			'mejorcluster_options',
 			'mejorcluster_options_section'
 		);
@@ -382,6 +394,7 @@ class Mejorcluster_Admin {
   }
 
 	public function settings_checkbox_enabled_render(  ) { $this->settings_checkbox_render ('enabled',1); }
+	public function settings_checkbox_hide_metaeditor_render(  ) { $this->settings_checkbox_render ('hide_metaeditor',0); }
 	public function settings_checkbox_skipcss_render(  ) { $this->settings_checkbox_render ('skipcss',0); }
 	public function settings_checkbox_round_render(  ) { $this->settings_checkbox_render ('round',1); }
 	public function settings_checkbox_shadow_render(  ) { $this->settings_checkbox_render ('shadow',1); }
