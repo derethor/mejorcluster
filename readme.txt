@@ -23,6 +23,7 @@ You can setup few global options to change the visual aspect of the block.
 1.1.8: 
 
 - added the title_maxwords and desc_maxwords parameters (also global) to limit the number of words displayed
+- now you can hide the meta box on post editor (go to settings and select 'hide custom box')
 
 == How to use ==
 
