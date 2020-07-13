@@ -20,6 +20,10 @@ You can setup few global options to change the visual aspect of the block.
 
 == Change Log ==
 
+1.1.10:
+
+- added the category="id" to find posts that have one category (and any children of that category). For example category="4".
+
 1.1.9:
 
 - added the meta="key=value" to find posts with a custom field
