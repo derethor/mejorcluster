@@ -155,8 +155,17 @@ class Mejorcluster_Public {
     $tagarray = array_map('intval', explode(',', $tags));
 
     $metaarray = explode ('=', $meta);
-    $metakey = sanitize_text_field( $metaarray [0] );
-    $metavalue = sanitize_text_field ( $metaarray [1] );
+
+    if ( isset($metaarray) && sizeof($metaarray)==2 )
+    {
+      $metakey = sanitize_text_field( $metaarray [0] );
+      $metavalue = sanitize_text_field ( $metaarray [1] );
+    }
+    else
+    {
+      $metakey = null;
+      $metavalue = null;
+    }
 
     $classname = sanitize_html_class($classname);
 
@@ -295,7 +304,7 @@ class Mejorcluster_Public {
       if (!$skip_image)
       {
         $output .= "<header class='mejorcluster-item-header'>";
-        if (!$skip_image_link) $output .=   "<a href='$the_link' rel='bookmark class='mejorcluster-image-link'>";
+        if (!$skip_image_link) $output .=   "<a href='$the_link' rel='bookmark' class='mejorcluster-image-link'>";
         $output .=     "<figure class='mejorcluster-figure'><img src='$the_thumb' class='mejorcluster-image' alt='$the_title' /></figure>";
         if (!$skip_image_link) $output .=   "</a>";
         $output .= "</header>";

@@ -84,4 +84,4 @@ You can setup few global options to change the visual aspect of the block.
 
 ### Spanish video tutorial
 
-[https://d.pr/v/u4XJZm](https://d.pr/v/u4XJZm)
+[https://media.publit.io/file/mejorcluster-optimized.mp4](https://media.publit.io/file/mejorcluster-optimized.mp4)
