@@ -20,6 +20,11 @@ You can setup few global options to change the visual aspect of the block.
 
 == Change Log ==
 
+1.1.11:
+
+- fixed quotes with rel=bookmark
+- check that meta has a valid key=value format
+
 1.1.10:
 
 - added the category="id" to find posts that have one category (and any children of that category). For example category="4".
