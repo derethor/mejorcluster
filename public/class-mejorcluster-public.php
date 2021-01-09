@@ -201,21 +201,26 @@ class Mejorcluster_Public {
         'orderby'        => $orderby,
       );
     } else { // no params
-
       $the_query = array(
-        'post_parent' => $post->ID,
         'post_type' => $post->post_type,
         'post__not_in' => $excldarray,
         'posts_per_page' => $maxitems,
         'orderby'        => $orderby,
       );
 
-      $categories = get_the_category($post->ID);
-      if ( is_array($categories) && count($categories) > 0 )
-      {
-        $category_id = $categories[0]->cat_ID;
-        $the_query['cat'] = $category_id;
+      $post_type = $post->post_type;
+      if ($post_type == 'post') {
+        $categories = get_the_category($post->ID);
+        if ( is_array($categories) && count($categories) > 0 )
+        {
+          $category_id = $categories[0]->cat_ID;
+          $the_query['category'] = $category_id;
+	}
+      } elseif ($post_type == 'page'){
+        $the_query['post_parent'] = $post->ID;
       }
+
+
     };
 
     $cssclass = 'mejorcluster';
