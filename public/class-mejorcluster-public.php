@@ -214,7 +214,7 @@ class Mejorcluster_Public {
         if ( is_array($categories) && count($categories) > 0 )
         {
           $category_id = $categories[0]->cat_ID;
-          $the_query['category'] = $category_id;
+          $the_query['cat'] = $category_id;
 	}
       } elseif ($post_type == 'page'){
         $the_query['post_parent'] = $post->ID;
