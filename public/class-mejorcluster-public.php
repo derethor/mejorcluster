@@ -127,6 +127,7 @@ class Mejorcluster_Public {
       'orderby' => gs($options,'orderby','title'),
       'meta' => gs($options,'meta',''),
       'posts' => '',
+      'posts_names' => '',
       'exclude' => '',
       'parent' => '',
       'categories' => '',
@@ -148,6 +149,7 @@ class Mejorcluster_Public {
     $desc_maxwords = intval($desc_maxwords);
 
     $postsarray = array_map('shortcode_map', explode(',', $posts) , [$post] );
+    $postsnamesarray = array_map(sanitize_text_field, explode(',', $posts_names)  );
     $excldarray = array_map('shortcode_map', explode(',', $exclude) , [$post] );
     $pararray = array_map('shortcode_map' , explode(',', $parent) , [$post] ) ;
     $catarray = array_map('intval', explode(',', $categories));
@@ -173,6 +175,14 @@ class Mejorcluster_Public {
     if($posts!= '') { // by post list
       $the_query = array(
         'post__in' => $postsarray,
+        'post_type' => 'any',
+        'post__not_in' => $excldarray,
+        'posts_per_page' => $maxitems,
+        'orderby'        => $orderby,
+      );
+    } elseif( $posts_names!= '') { // by post slug
+      $the_query = array(
+        'post_name__in' => $postsnamesarray,
         'post_type' => 'any',
         'post__not_in' => $excldarray,
         'posts_per_page' => $maxitems,
