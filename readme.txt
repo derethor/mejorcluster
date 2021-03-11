@@ -1,7 +1,7 @@
 === El mejor Cluster ===
 Contributors: derethor
 Tags: cluster,seo,related posts
-Tested up to: 5.5
+Tested up to: 5.7
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -19,6 +19,12 @@ You can setup few global options to change the visual aspect of the block.
 
 
 == Change Log ==
+
+1.1.12:
+
+- Added functionality to be able to search posts by category name. Example: [mejorcluster category_name="Category1"]
+- Added functionality to be able to search posts by slug. Example: [mejorcluster posts_names="el-mejor-cluster,another-post"]
+- fix bug with default post type and post parents
 
 1.1.11:
 
