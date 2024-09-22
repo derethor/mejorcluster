@@ -22,23 +22,9 @@
  */
 class Mejorcluster_Public {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
 	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
 	private $version;
+  private $global_options;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -150,7 +136,7 @@ class Mejorcluster_Public {
     $desc_maxwords = intval($desc_maxwords);
 
     $postsarray = array_map('shortcode_map', explode(',', $posts) , [$post] );
-    $postsnamesarray = array_map(sanitize_text_field, explode(',', $posts_names)  );
+    $postsnamesarray = array_map('sanitize_text_field', explode(',', $posts_names)  );
     $excldarray = array_map('shortcode_map', explode(',', $exclude) , [$post] );
     $pararray = array_map('shortcode_map' , explode(',', $parent) , [$post] ) ;
     $catarray = array_map('intval', explode(',', $categories));

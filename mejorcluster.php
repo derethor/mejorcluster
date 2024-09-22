@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'MEJORCLUSTER_VERSION', '1.1.12' );
+define( 'MEJORCLUSTER_VERSION', '1.1.13' );
 
 /**
  * The code that runs during plugin activation.
