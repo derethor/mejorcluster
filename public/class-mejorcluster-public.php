@@ -330,11 +330,12 @@ class Mejorcluster_Public {
 
         if(!$skip_title)
         {
-          $output .= "<$title_tag class='mejorcluster-title'>";
+          $safe_title = esc_html ($title_tag);
+          $output .= "<$safe_title class='mejorcluster-title'>";
           if (!$skip_title_link) $output .= "<a href='$the_link' rel='bookmark' class='mejorcluster-title-link'>";
           $output .= $the_title;
           if (!$skip_title_link) $output .= "</a>";
-          $output .= "</$title_tag>";
+          $output .= "</$safe_title>";
         }
 
         if(!$skip_desc)
