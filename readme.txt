@@ -20,6 +20,13 @@ You can setup few global options to change the visual aspect of the block.
 
 == Change Log ==
 
+1.1.15:
+
+- Fix 1.1.14 vulnerable to Cross Site Scripting (XSS) https://patchstack.com/database/report-preview/5cf34627-9138-47e5-a25d-09b24efa12ee?pin=2Y6KTWHtG1i5ZyxA
+
+1.1.14:
+- Fix typoos 
+
 1.1.13:
 - Fix bug that caused the plugin to crash with PHP 8
 
