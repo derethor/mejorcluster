@@ -1,14 +1,15 @@
 === El mejor Cluster ===
 Contributors: derethor
-Tags: cluster,seo,related posts
+Tags: seo,related posts
+Requires at least: 4.7
 Tested up to: 6.6.2
+Stable tag: 1.1.15
+Requires PHP: 8.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
 Create easy related posts blocks with a simple shortcode.
 This plugin is light, very easy to use and designed for SEO.
-
-Visit the official wordpress plugin page: https://wordpress.org/plugins/mejorcluster/
 
 == Description ==
 This plugin with create a related post block with a simple shortcode.
@@ -17,6 +18,7 @@ You can configure the title, description and image of each post (by default will
 
 You can setup few global options to change the visual aspect of the block.
 
+Visit the official wordpress plugin page: https://wordpress.org/plugins/mejorcluster/
 
 == Change Log ==
 
@@ -25,7 +27,7 @@ You can setup few global options to change the visual aspect of the block.
 - Fix 1.1.14 vulnerable to Cross Site Scripting (XSS) https://patchstack.com/database/report-preview/5cf34627-9138-47e5-a25d-09b24efa12ee?pin=2Y6KTWHtG1i5ZyxA
 
 1.1.14:
-- Fix typoos 
+- Fix typoos
 
 1.1.13:
 - Fix bug that caused the plugin to crash with PHP 8
@@ -106,3 +108,10 @@ You can setup few global options to change the visual aspect of the block.
 ### Spanish video tutorial
 
 [https://media.publit.io/file/mejorcluster-optimized.mp4](https://media.publit.io/file/mejorcluster-optimized.mp4)
+
+== Frequently Asked Questions ==
+
+### Is this plugin abandoned?
+
+Not really. While the plugin is quite simple and doesn't require much maintenance, I still use it on my websites and update it as needed to fix any issues.
+
