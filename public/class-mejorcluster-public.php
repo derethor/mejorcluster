@@ -330,7 +330,19 @@ class Mejorcluster_Public {
 
         if(!$skip_title)
         {
-          $safe_title = esc_html ($title_tag);
+          $allowed_tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'b' , 'i' , 'u' , 'strong', 'em', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'div', 'section', 'article', 'aside','nav','header','footer','td'];
+          
+          // remove non alphanumeric chars
+          $safe_title = preg_replace('/[^a-z0-9]/', '', $title_tag);
+          // escape trim and strlower
+          $safe_title =  strtolower( trim( esc_html ($safe_title) ) );
+
+          // check white list
+          if (!in_array($safe_title, $allowed_tags, true))
+          {
+            $safe_title = 'h3'; // default tag
+          }
+
           $output .= "<$safe_title class='mejorcluster-title'>";
           if (!$skip_title_link) $output .= "<a href='$the_link' rel='bookmark' class='mejorcluster-title-link'>";
           $output .= $the_title;

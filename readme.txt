@@ -3,7 +3,7 @@ Contributors: derethor
 Tags: seo,related posts
 Requires at least: 4.7
 Tested up to: 6.6.2
-Stable tag: 1.1.15
+Stable tag: 1.1.16
 Requires PHP: 8.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -21,6 +21,16 @@ You can setup few global options to change the visual aspect of the block.
 Visit the official wordpress plugin page: https://wordpress.org/plugins/mejorcluster/
 
 == Change Log ==
+
+1.1.16:
+
+- Using a while list for title_tag to prevent XSS attacks. This can break compatibility if you are using this field for custom html code.
+
+  [mejorcluster title_tag='h4']
+
+  white list of allowed title tags:
+
+  h1 h2 h3 h4 h5 h6 p span b i u strong em ul ol li a blockquote code div section article aside nav header footer td
 
 1.1.15:
 
